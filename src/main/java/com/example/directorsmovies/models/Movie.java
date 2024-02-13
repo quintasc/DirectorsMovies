@@ -1,5 +1,7 @@
-package com.monlau.springbootexample03.models;
+package com.example.directorsmovies.models;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,13 +21,16 @@ public class Movie {
     @Column(name = "movie_id")
     private Long id;
     private String title;
-    private int year;
+    @Column(name = "release_year")
+    private int releaseYear;
     private String genre;
 //    private List<Actor> actors;
+    @Column(name = "imdb_rating")
     private int imdbRating;
     private int duration;
 //    private Producer producer;
-    @OneToMany(mappedBy = "movie")
-    private List<DirectorMovie> directorMovies;
+    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<RelDirectorMovie> directorMovies;
 
 }

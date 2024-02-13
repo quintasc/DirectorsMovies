@@ -8,3 +8,6 @@ class DirectorsMoviesApplicationTests {
 
     @Test
     void contextLoads() {
+    }
+
+}

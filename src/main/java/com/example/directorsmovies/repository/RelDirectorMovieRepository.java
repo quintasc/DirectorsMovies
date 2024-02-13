@@ -1,8 +1,8 @@
 package com.example.directorsmovies.repository;
 
-import com.example.directorsmovies.models.Director;
+import com.example.directorsmovies.models.RelDirectorMovie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DirectorRepository extends JpaRepository<Director, Long> {
+public interface RelDirectorMovieRepository extends JpaRepository<RelDirectorMovie, Long> {
 
 }

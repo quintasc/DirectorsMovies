@@ -1,2 +1,4 @@
-package com.example.directorsmovies.services;public class RelDirectorMovieService {
+package com.example.directorsmovies.services;
+
+public class RelDirectorMovieService {
 }

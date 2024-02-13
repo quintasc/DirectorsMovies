@@ -1,5 +1,6 @@
 package com.example.directorsmovies.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,22 +12,23 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "directors_movies")
-public class DirectorMovie {
+@Table(name = "rel_directors_movies")
+public class RelDirectorMovie {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "directormovie_gen")
-    @SequenceGenerator(name = "directormovie_gen", sequenceName = "hibernate_sequence_directormovie", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reldirectormovie_gen")
+    @SequenceGenerator(name = "reldirectormovie_gen", sequenceName = "hibernate_sequence_reldirectormovie", allocationSize=1)
     private Long      id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "director_id")
+    @JsonIgnore
     private Director director;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
     @Column(name = "start_date")
-    private LocalDate startDate;
+    private String startDate;
     @Column(name = "end_date")
-    private LocalDate endDate;
+    private String endDate;
 
 
 

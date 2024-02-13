@@ -1,4 +1,4 @@
-package com.monlau.springbootexample03.models;
+package com.example.directorsmovies.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,9 +20,13 @@ public class Director {
     private Long id;
     private String  name;
     private String  country;
+    @Column(name = "birthdate")
     private String  birthDate;
+    @Column(name = "isalive")
     private boolean isAlive;
+
+    @Column(name = "isoscarwinner")
     private boolean  isOscarWinner;
-    @OneToMany(mappedBy = "director")
-    private List<DirectorMovie> directorMovies;
+    @OneToMany(mappedBy = "director", fetch = FetchType.EAGER)
+    private List<RelDirectorMovie> directorMovies;
 }
